@@ -36,7 +36,7 @@ class RNImageProcessor: NSObject {
                 context.setFillColor(UIColor(hex: fillColor).cgColor)
                 context.fill(CGRect(x: 0, y: 0, width: width, height: height))
                 if let myImage = UIGraphicsGetImageFromCurrentImageContext() {
-                    imageData = UIImagePNGRepresentation(myImage)
+                    imageData = myImage.pngData()
                 }
             }
             
@@ -73,7 +73,7 @@ class RNImageProcessor: NSObject {
                  #imageLiteral(resourceName: "launch_background").draw(in: CGRect(x: 100, y: 100, width: 470, height: 870))
             
                  if let myImage = UIGraphicsGetImageFromCurrentImageContext() {
-                     imagesData[destImageName] = UIImagePNGRepresentation(myImage)
+                     imagesData[destImageName] = myImage.pngData()
                  }
             
                  UIGraphicsEndImageContext()
@@ -140,7 +140,7 @@ class RNImageProcessor: NSObject {
                 }
 
                 if let myImage = UIGraphicsGetImageFromCurrentImageContext() {
-                    resultImageData = UIImagePNGRepresentation(myImage)
+                    resultImageData = myImage.pngData()
                 }
                 
                 UIGraphicsEndImageContext()
